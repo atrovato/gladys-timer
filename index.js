@@ -1,5 +1,7 @@
-const timer = require('./lib/timer.js');
+const deviceTimer = require('./lib/deviceTimer.js');
 
 module.exports = {
-  timer: timer
+  timer: {
+    deviceTimer: deviceTimer
+  }
 };

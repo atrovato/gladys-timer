@@ -17,8 +17,9 @@ gladys.timer.deviceTimer({ ... params })
 ```
 
 With 'params' is an object as :
+
 | Property        | Description           | Example  |
-| --------------- |------------| -----|
+| --- | --- | --- |
 | timeout         | Time to check device state in milliseconds | 2000 (for 2s) |
 | provider        | Description of the input device            | { deviceTypeId: 1, activateValue: 1 } |
 | consumer        | Description of the output device           | { deviceTypeId: 2, activateValue: 1, inactivateValue : 0 } |

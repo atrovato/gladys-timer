@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/atrovato/gladys-timer/issues"
   },
-  "homepage": "https://github.com/atrovato/gladys-timer#readme"
+  "homepage": "https://github.com/atrovato/gladys-timer#readme",
+  "dependencies": {
+    "bluebird": "^3.5.3"
+  }
 }

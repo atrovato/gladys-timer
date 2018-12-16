@@ -18,7 +18,7 @@ describe('Gladys-timer check parameters', function () {
       .then(() => {
         done('Should have fail');
       }).catch((err) => {
-        assert.isOk(err, 'Timer \'expected.timeout\' parameter is missing');
+        assert.isOk(err, 'Timer \'consumer.timeout\' parameter is missing');
         done();
       });
   });
@@ -53,48 +53,48 @@ describe('Gladys-timer check parameters', function () {
       });
   });
 
-  it('Expected parameters are mandatory', function (done) {
+  it('Consumer parameters are mandatory', function (done) {
     checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 } })
       .then(() => {
         done('Should have fail');
       }).catch((err) => {
-        assert.isOk(err, 'Timer \'expected\' parameter is missing');
+        assert.isOk(err, 'Timer \'consumer\' parameter is missing');
         done();
       });
   });
 
-  it('Expected deviceTypeId parameters are mandatory', function (done) {
-    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, expected: {} })
+  it('Consumer deviceTypeId parameters are mandatory', function (done) {
+    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, consumer: {} })
       .then(() => {
         done('Should have fail');
       }).catch((err) => {
-        assert.isOk(err, 'Timer \'expected.deviceTypeId\' parameter is missing');
+        assert.isOk(err, 'Timer \'consumer.deviceTypeId\' parameter is missing');
         done();
       });
   });
 
-  it('Expected activeValue parameters are mandatory', function (done) {
-    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, expected: { deviceTypeId: 1 } })
+  it('Consumer activeValue parameters are mandatory', function (done) {
+    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, consumer: { deviceTypeId: 1 } })
       .then(() => {
         done('Should have fail');
       }).catch((err) => {
-        assert.isOk(err, 'Timer \'expected.activeValue\' parameter is missing');
+        assert.isOk(err, 'Timer \'consumer.activeValue\' parameter is missing');
         done();
       });
   });
 
-  it('Expected inactiveValue parameters are mandatory', function (done) {
-    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, expected: { deviceTypeId: 1, activeValue: 0 } })
+  it('Consumer inactiveValue parameters are mandatory', function (done) {
+    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, consumer: { deviceTypeId: 1, activeValue: 0 } })
       .then(() => {
         done('Should have fail');
       }).catch((err) => {
-        assert.equal(err, 'Timer \'expected.inactiveValue\' parameter is missing');
+        assert.equal(err, 'Timer \'consumer.inactiveValue\' parameter is missing');
         done();
       });
   });
 
   it('Parameters are OK', function (done) {
-    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, expected: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
     checkParameters(params)
       .then((res) => {
         assert.deepEqual(res, params);

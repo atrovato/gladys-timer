@@ -4,7 +4,7 @@ Scripts to add some timer logics to Gladys.
 ## API
 All defined functions are promises and can be used as :
 ```javascript
-gladys.timer.deviceTimer({ ... params })
+gladys.modules.timer.deviceTimer({ ... params })
   .then(() => ... something else ...) 
   .catch(() => ... something more ...); 
 ```
@@ -13,7 +13,7 @@ gladys.timer.deviceTimer({ ... params })
 This function allows you to check when a value of a device if reached, and changes temporary the value of another device.
 
 ```javascript
-gladys.timer.deviceTimer({ ... params })
+gladys.modules.timer.deviceTimer({ ... params });
 ```
 
 With 'params' is an object as :
@@ -27,7 +27,7 @@ With 'params' is an object as :
 Example : when the presence sensor (id=1) detects activity, the light (id=2) should be ON only for 2 minutes after last activity
 
 ```javascript
-gladys.timer.deviceTimer({
+gladys.modules.timer.deviceTimer({
   // time, duration 
   timeout: 120000,
   // device to activate timer
@@ -41,5 +41,5 @@ gladys.timer.deviceTimer({
     activateValue: 1, // switch light ON
     inactivateValue: 0 // switch light OFF
   }
- }) 
+ });
 ```

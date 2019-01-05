@@ -21,8 +21,8 @@ With 'params' is an object as :
 | Property        | Description           | Example  |
 | --- | --- | --- |
 | timeout         | Time to check device state in milliseconds | 2000 (for 2s) |
-| provider        | Description of the input device            | { deviceTypeId: 1, activateValue: 1 } |
-| consumer        | Description of the output device           | { deviceTypeId: 2, activateValue: 1, inactivateValue : 0 } |
+| provider        | Description of the input device            | { deviceTypeId: 1, activeValue: 1 } |
+| consumer        | Description of the output device           | { deviceTypeId: 2, activeValue: 1, inactiveValue : 0 } |
 
 Example : when the presence sensor (id=1) detects activity, the light (id=2) should be ON only for 2 minutes after last activity
 
@@ -33,13 +33,13 @@ gladys.modules.timer.deviceTimer({
   // device to activate timer
   provider: {
     deviceTypeId: 1, // presence sensor ID
-    activateValue: 1 // presence value for activity
+    activeValue: 1 // presence value for activity
   },
   // device to manage
   consumer: {
     deviceTypeId: 2, // light ID
-    activateValue: 1, // switch light ON
-    inactivateValue: 0 // switch light OFF
+    activeValue: 1, // switch light ON
+    inactiveValue: 0 // switch light OFF
   }
  });
 ```

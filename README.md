@@ -21,8 +21,10 @@ With 'params' is an object as :
 | Property        | Description           | Example  |
 | --- | --- | --- |
 | timeout         | Time to check device state in milliseconds | 2000 (for 2s) |
-| provider        | Description of the input device            | { deviceTypeId: 1, activeValue: 1 } |
+| provider        | Description of the input device            | { deviceTypeId: 1, activeValue: 1, operator: '=' } |
 | consumer        | Description of the output device           | { deviceTypeId: 2, activeValue: 1, inactiveValue : 0 } |
+
+Operator can be one of : <=, <, =, >, >=, and is not mandatory.
 
 Example : when the presence sensor (id=1) detects activity, the light (id=2) should be ON only for 2 minutes after last activity
 

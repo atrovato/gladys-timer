@@ -53,6 +53,16 @@ describe('Gladys-timer check parameters', function () {
       });
   });
 
+  it('Provider operator parameter is invalid', function (done) {
+    checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: 'false' } })
+      .then(() => {
+        done('Should have fail');
+      }).catch((err) => {
+        assert.isOk(err, 'Timer \'provider.operator\' parameter is invalid');
+        done();
+      });
+  });
+
   it('Consumer parameters are mandatory', function (done) {
     checkParameters({ timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 } })
       .then(() => {
@@ -93,8 +103,63 @@ describe('Gladys-timer check parameters', function () {
       });
   });
 
-  it('Parameters are OK', function (done) {
+  it('Parameters are OK (no operator)', function (done) {
     const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0 }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    checkParameters(params)
+      .then((res) => {
+        assert.deepEqual(res, params);
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+  });
+
+  it('Parameters are OK (> operator)', function (done) {
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: '>' }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    checkParameters(params)
+      .then((res) => {
+        assert.deepEqual(res, params);
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+  });
+
+  it('Parameters are OK (>= operator)', function (done) {
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: '>=' }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    checkParameters(params)
+      .then((res) => {
+        assert.deepEqual(res, params);
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+  });
+
+  it('Parameters are OK (< operator)', function (done) {
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: '<' }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    checkParameters(params)
+      .then((res) => {
+        assert.deepEqual(res, params);
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+  });
+
+  it('Parameters are OK (<= operator)', function (done) {
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: '<=' }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
+    checkParameters(params)
+      .then((res) => {
+        assert.deepEqual(res, params);
+        done();
+      }).catch((err) => {
+        done(err);
+      });
+  });
+
+  it('Parameters are OK (= operator)', function (done) {
+    const params = { timeout: 2000, provider: { deviceTypeId: 1, activeValue: 0, operator: '=' }, consumer: { deviceTypeId: 1, activeValue: 0, inactiveValue: 1 } };
     checkParameters(params)
       .then((res) => {
         assert.deepEqual(res, params);

@@ -25,7 +25,6 @@ With 'params' is an object as :
 | consumer        | Description of the output device           | { deviceTypeId: 2, activeValue: 1, inactiveValue : 0 } |
 
 provider.operator can be one of : <=, <, =, >, >=, and is not mandatory (default is =).
-provider.datetime is not mandatory (default is stored device state datetime).
 
 Example : when the presence sensor (id=1) detects activity, the light (id=2) should be ON only for 2 minutes after last activity
 
